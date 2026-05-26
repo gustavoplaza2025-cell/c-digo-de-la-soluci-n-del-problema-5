@@ -1,0 +1,35 @@
+# Matriz con los recursos y las horas trabajadas de lunes a viernes
+# [Nombre, Lunes, Martes, Miércoles, Jueves, Viernes]
+
+recursos = [
+    ["Carlos", 8, 9, 8, 10, 9],
+    ["Ana", 7, 8, 7, 8, 7],
+    ["Luis", 9, 9, 10, 8, 9],
+    ["María", 6, 7, 8, 7, 6]
+]
+
+# Funcion para calcular el total de horas y clasificar la jornada
+def calcular_horas(recurso):
+    nombre = recurso[0]
+    horas = recurso[1:]
+
+    total_horas = sum(horas)
+# si es que lo normal es que una persona trabaje al dia es de 8 horas y luego po los 5 dias de la semana
+    if total_horas > 40:
+        clasificacion = "Sobretiempo"
+    else:
+        clasificacion = "Horario Estándar"
+
+    return nombre, total_horas, clasificacion
+
+
+# Recorrer la matriz y imprimir los imprimir resultados
+print("REPORTE SEMANAL DE HORAS\n")
+
+for recurso in recursos:
+    nombre, total, clasificacion = calcular_horas(recurso)
+
+    print("Recurso:", nombre)
+    print("Total de horas:", total)
+    print("Clasificación:", clasificacion)
+    print("-" * 30)
